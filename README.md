@@ -19,7 +19,7 @@ Put your Gemini key in `.env` in the project folder. The key is loaded on the se
 GEMINI_API_KEY = "your-key-here"
 ```
 
-Environment variables take precedence over `.env`; Streamlit secrets are also supported as a fallback. `.env` is ignored by Git. Never commit secrets. The default model is `gemini-2.5-flash`; Model settings lets you choose another available model.
+Environment variables take precedence over `.env`; Streamlit secrets are also supported as a fallback. `.env` is ignored by Git. Never commit secrets. The default model is `gemini-2.5-pro`; Set the GEMINI_MODEL environment variable to use a different model.
 
 ## Expo walkthrough
 
