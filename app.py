@@ -104,7 +104,7 @@ with st.sidebar:
         except FileNotFoundError:
             key = ''
 
-    model = os.getenv('GEMINI_MODEL', 'gemini-2.5-pro')
+    model = os.getenv('GEMINI_MODEL', 'gemini-2.5-flash-lite')
     if st.button('New conversation', key='new_conversation', icon=':material/chat:', width='stretch'):
         reset_conversation()
         st.rerun()
