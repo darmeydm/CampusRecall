@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.db
+*.db-*
+.streamlit/secrets.toml
+.pytest_cache/
+
+.env
+.env.*
+!.env.example
+.mypy_cache/
+.DS_Store
+.agents/
+.claude/
+.codex/
