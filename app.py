@@ -97,14 +97,17 @@ with st.sidebar:
     if not visitor:
         st.caption('Personal tasks are saved on this computer. This is a local, single-user workspace; it has no sign-in.')
     env_config = dotenv_values(Path(__file__).with_name('.env'))
-    key = os.getenv('GEMINI_API_KEY', '') or env_config.get('GEMINI_API_KEY', '')
-    if not key:
-        try:
-            key = st.secrets.get('GEMINI_API_KEY', '')
-        except FileNotFoundError:
-            key = ''
+    def setting(name, default=''):
+        value = os.getenv(name) or env_config.get(name)
+        if not value:
+            try:
+                value = st.secrets.get(name, default)
+            except FileNotFoundError:
+                value = default
+        return str(value or default).strip()
 
-    model = os.getenv('GEMINI_MODEL', 'gemini-2.5-flash-lite')
+    key = setting('GEMINI_API_KEY')
+    model = setting('GEMINI_MODEL', 'gemini-3.5-flash-lite')
     if st.button('New conversation', key='new_conversation', icon=':material/chat:', width='stretch'):
         reset_conversation()
         st.rerun()
@@ -200,6 +203,7 @@ if page == 'Capture':
                     st.rerun()
                 except Exception as error:
                     st.error(assistant_error(error))
+                    st.caption(f"Requested model: {model} · Gemini Developer API v1beta")
                     st.caption('Your input, saved items, and existing drafts are preserved. Retry after resolving the issue.')
                     st.session_state.retry_text = text
     if st.session_state.get('retry_text'):

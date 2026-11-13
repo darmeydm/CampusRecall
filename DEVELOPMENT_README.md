@@ -27,7 +27,7 @@ The interface is written with Python and Streamlit widgets. This project does no
 | Tool | Role |
 | --- | --- |
 | **Streamlit** | Builds the web interface, forms, navigation screens, audio recording controls, file uploads, and session state. |
-| **Google Gemini** | Interprets text, screenshots, and recordings; suggests tasks and memories; asks clarifying questions; answers questions about supplied saved records. The default model is `gemini-2.5-flash-lite`. |
+| **Google Gemini** | Interprets text, screenshots, and recordings; suggests tasks and memories; asks clarifying questions; answers questions about supplied saved records. The default model is `gemini-3.5-flash-lite`. |
 | **Google Gen AI SDK (`google-genai`)** | Connects the Python application to Gemini. |
 | **SQLite / Python `sqlite3`** | Stores Personal-mode records in a local database. |
 | **ReportLab** | Generates printable PDF recall cards. |
